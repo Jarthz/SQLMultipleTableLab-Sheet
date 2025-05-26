@@ -19,7 +19,7 @@ CREATE TABLE Department (
   DepartmentFloor SMALLINT UNSIGNED NOT NULL,
   DepartmentPhone SMALLINT UNSIGNED NOT NULL,
   EmployeeNumber SMALLINT UNSIGNED NOT NULL REFERENCES 
-    Employee,
+    Employee(EmployeeNumber),
   PRIMARY KEY (DepartmentName));
 
 CREATE TABLE Sale (
@@ -40,7 +40,7 @@ CREATE TABLE Delivery (
   ItemName VARCHAR(30) NOT NULL REFERENCES Item,
   DepartmentName VARCHAR(10) NOT NULL REFERENCES Department,
   SupplierNumber INTEGER UNSIGNED NOT NULL REFERENCES  
-     Supplier,
+     Supplier(SupplierNumber),
   PRIMARY KEY (DeliveryNumber));
 
 -- using the data in the text files, insert into the tables this information
